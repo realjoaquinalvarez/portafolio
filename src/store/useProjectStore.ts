@@ -80,7 +80,6 @@ export const useProjectStore = create<ProjectStore>((set) => ({
 
   setSelectedCategory: (category) => set((state) => ({
     
-    
     filters: {
       ...state.filters,
       selectedCategory: category,

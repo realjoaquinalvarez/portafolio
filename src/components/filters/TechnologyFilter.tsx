@@ -22,7 +22,7 @@ export const TechnologyFilter = () => {
             style={{ backgroundColor: tech.color.bg, color: tech.color.text }}
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
               filters.selectedTechnologies.includes(tech.id)
-                ? 'ring-1 ring-gray-200'
+                ? 'ring-1 ring-gray-500'
                 : ''
             }`}
           >
@@ -30,7 +30,9 @@ export const TechnologyFilter = () => {
           </button>
         ))}
       </div>
-      
+        
+     
+
     </div>
   );
 };

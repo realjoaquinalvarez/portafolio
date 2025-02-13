@@ -1,6 +1,7 @@
 
 import { Input } from '@/components/ui/input';
 import { useProjectStore } from '@/store/useProjectStore';
+import { Link } from 'react-router-dom';
 
 export const SearchBar = () => {
   const { filters, setSearchQuery } = useProjectStore();
@@ -14,6 +15,14 @@ export const SearchBar = () => {
         onChange={(e) => setSearchQuery(e.target.value)}
         className="max-w-md bg-white/50 backdrop-blur-sm border-gray-200"
       />
+      <Link to='/' >
+        <button className="absolute right-11 top-8 flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+          
+          Volver
+        </button>
+      </Link>
+      
+
     </div>
   );
 };

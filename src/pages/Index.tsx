@@ -1,4 +1,3 @@
-
 import { Sidebar } from '@/components/layout/Sidebar';
 import { SearchBar } from '@/components/filters/SearchBar';
 import { TechnologyFilter } from '@/components/filters/TechnologyFilter';
@@ -8,31 +7,41 @@ import { useProjectStore } from '@/store/useProjectStore';
 const Index = () => {
   const { projects, filters } = useProjectStore();
 
+  const normalizeText = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/[-_\s]+/g, '') // Elimina guiones, guiones bajos y espacios
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, ""); // Elimina acentos
+  };
+
   const filteredProjects = projects.filter(project => {
     
     if (filters.searchQuery) {
-      const query = filters.searchQuery.toLowerCase();
+      const query = normalizeText(filters.searchQuery);
       return (
-        project.title.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
+        normalizeText(project.title).includes(query) ||
+        normalizeText(project.description).includes(query) ||
         project.technologies.some(tech => 
-          tech.name.toLowerCase().includes(query)
+          normalizeText(tech.name).includes(query)
         )
       );
     }
 
-    if (filters.selectedTechnologies.length > 0) {
-      return project.technologies.some(tech =>
-        filters.selectedTechnologies.includes(tech.id)
+     if (filters.selectedTechnologies.length > 0) {
+      return filters.selectedTechnologies.every(selectedTech =>
+        project.technologies.some(tech => tech.id === selectedTech)
       );
     }
 
     if (filters.selectedCategory) {
-      if(filters.selectedCategory === 'all'){
-        
+
+      if(filters.selectedCategory === 'all') {
+        return project.category
+      } else {
+        return project.category === filters.selectedCategory;
       }
-      
-      return project.category === filters.selectedCategory;
+       
     }
 
     return true;
