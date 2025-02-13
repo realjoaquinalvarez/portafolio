@@ -21,7 +21,7 @@ export const ProjectCard = ({
           }`}
         />
         <img
-          src={'imagen.jpg'}
+          src={image}
           alt={title}
           className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
