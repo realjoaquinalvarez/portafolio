@@ -7,7 +7,7 @@ export const SearchBar = () => {
   const { filters, setSearchQuery } = useProjectStore();
 
   return (
-    <div className="flex justify-center mb-6">
+    <div className="flex justify-center space-x-2 mb-6">
       <Input
         type="text"
         placeholder="Buscar por título o categoría..."
@@ -16,9 +16,9 @@ export const SearchBar = () => {
         className="max-w-md bg-white/50 backdrop-blur-sm border-gray-200"
       />
       <Link to='/' >
-        <button className="absolute right-11 top-8 flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+        <button className="items-center gap-2 px-4 py-2 border border-gray-200 text-gray-800 rounded-lg hover:bg-gray-100 transition">
           
-          Volver
+          Borrar filtros
         </button>
       </Link>
       
