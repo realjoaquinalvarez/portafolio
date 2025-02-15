@@ -7,6 +7,7 @@ import {
   PopoverContent,
 } from "@/components/ui/popover";
 import { motion } from "framer-motion";
+import useIsMobile from '@/hooks/useIsMobile';
 
 export const ProjectCard = ({
   title,
@@ -20,6 +21,7 @@ export const ProjectCard = ({
   const visibleTags = technologies.slice(0, 5);
   const hiddenTags = technologies.slice(5);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   // Cierra el popover si se hace click fuera del contenedor
   useEffect(() => {
@@ -36,18 +38,17 @@ export const ProjectCard = ({
     <div ref={containerRef} className="project-card group">
       <div className="relative mb-4 overflow-hidden rounded-lg">
         <div className={`absolute inset-0 bg-gray-100 ${imageLoaded ? 'hidden' : 'block'}`} />
-        <a href={link}>
+        <a href={link} target="_blank" rel="noopener noreferrer">
           <img
             src={image}
             alt={title}
-            className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
+            className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             onLoad={() => setImageLoaded(true)}
           />
         </a>
       </div>
 
-      <a href={link}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <h3 className="mb-2 text-lg font-medium text-gray-900">{title}</h3>
         <p className="mb-4 text-sm text-gray-600">{description}</p>
       </a>
@@ -66,9 +67,22 @@ export const ProjectCard = ({
           <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
             <PopoverTrigger asChild>
               <button
+                // En móvil se usa click; en PC se usa hover (onMouseEnter/Leave)
                 onClick={(e) => {
-                  e.stopPropagation();
-                  setPopoverOpen((prev) => !prev);
+                  if (isMobile) {
+                    e.stopPropagation();
+                    setPopoverOpen((prev) => !prev);
+                  }
+                }}
+                onMouseEnter={() => {
+                  if (!isMobile) {
+                    setPopoverOpen(true);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (!isMobile) {
+                    setPopoverOpen(false);
+                  }
                 }}
                 className="tech-tag bg-indigo-50 text-indigo-800 hover:bg-indigo-100 transition-colors"
               >
@@ -104,6 +118,8 @@ export const ProjectCard = ({
 
       <a
         href={link}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
       >
         Visit <ExternalLink className="h-4 w-4" />
