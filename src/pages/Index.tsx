@@ -77,7 +77,7 @@ const Index = () => {
             maxWidth: '200px',
             width: 'auto',
             position: 'absolute',
-            right: '0',
+            right: '1.5rem',
             marginLeft: '200px'
           }
         }}
