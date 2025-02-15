@@ -36,17 +36,21 @@ export const ProjectCard = ({
     <div ref={containerRef} className="project-card group">
       <div className="relative mb-4 overflow-hidden rounded-lg">
         <div className={`absolute inset-0 bg-gray-100 ${imageLoaded ? 'hidden' : 'block'}`} />
-        <img
-          src={image}
-          alt={title}
-          className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-          onLoad={() => setImageLoaded(true)}
-        />
+        <a href={link}>
+          <img
+            src={image}
+            alt={title}
+            className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+            onLoad={() => setImageLoaded(true)}
+          />
+        </a>
       </div>
 
-      <h3 className="mb-2 text-lg font-medium text-gray-900">{title}</h3>
-      <p className="mb-4 text-sm text-gray-600">{description}</p>
+      <a href={link}>
+        <h3 className="mb-2 text-lg font-medium text-gray-900">{title}</h3>
+        <p className="mb-4 text-sm text-gray-600">{description}</p>
+      </a>
 
       <div className="flex flex-wrap gap-1.5 items-center">
         {visibleTags.map((tech) => (
