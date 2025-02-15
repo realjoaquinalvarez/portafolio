@@ -120,7 +120,7 @@ export default function Landing() {
           </div>
 
           <BlurFade delay={0.3}>
-            <p className="text-1xl text-center mt-4">
+            <p className="text-1xl text-center mt-3 md:mt-4">
               Estudio Ingeniería en Sistemas en la Universidad Nacional y
               llevo más de un año creando proyectos y capacitándome
               constantemente. 🚀

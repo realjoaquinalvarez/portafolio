@@ -6,6 +6,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
+import { motion } from "framer-motion";
 
 export const ProjectCard = ({
   title,
@@ -38,9 +39,8 @@ export const ProjectCard = ({
         <img
           src={image}
           alt={title}
-          className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
           onLoad={() => setImageLoaded(true)}
         />
       </div>
@@ -80,14 +80,17 @@ export const ProjectCard = ({
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-wrap gap-1.5 content-start max-w-48 max-h-[200px] overflow-y-auto">
-                {hiddenTags.map((tech) => (
-                  <span
+                {hiddenTags.map((tech, index) => (
+                  <motion.span
                     key={tech.id}
                     style={{ backgroundColor: tech.color.bg, color: tech.color.text }}
                     className="tech-tag text-xs"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
                     {tech.name}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </PopoverContent>

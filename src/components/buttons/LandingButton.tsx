@@ -6,7 +6,7 @@ export const LandingButton = () => {
 
     
     return (
-        <div className="mt-6 bg-white flex items-center justify-center">
+        <div className="mt-2 md:mt-6 bg-white flex items-center justify-center">
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-8 text-center">
                 <FadeContent
                     blur={true}

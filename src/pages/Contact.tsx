@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa"
 import { ClipLoader } from "react-spinners"
 import { useNavigate } from 'react-router-dom';
+import useIsMobile from '@/hooks/useIsMobile';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ export default function Contact() {
   })
   const [copied, setCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const isMobile = useIsMobile();
     
   const navigate = useNavigate();
 
@@ -151,7 +153,9 @@ export default function Contact() {
             )}
           </div>
           <a
-            href="https://mail.google.com"
+            // Si es móvil, redirige a gmail.com, de lo contrario a mail.google.comus
+            
+            href={isMobile ? "https://gmail.com" : "https://mail.google.com"}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
