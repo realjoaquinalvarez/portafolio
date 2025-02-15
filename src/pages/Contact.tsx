@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback } from "react";
 import { 
   FaLinkedin, 
   FaGithub, 
@@ -7,50 +7,73 @@ import {
   FaWhatsapp, 
   FaArrowLeft, 
   FaExternalLinkAlt 
-} from "react-icons/fa"
-import { ClipLoader } from "react-spinners"
-import { useNavigate } from 'react-router-dom';
-import useIsMobile from '@/hooks/useIsMobile';
+} from "react-icons/fa";
+import { ClipLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
+import useIsMobile from "@/hooks/useIsMobile";
+
+// Función para detectar si el dispositivo es iOS
+function isIOS() {
+  if (typeof navigator === "undefined") return false;
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
+}
+
+// Función que retorna el enlace para abrir Gmail
+function getGmailLink(isMobile: boolean) {
+  if (isMobile) {
+    if (isIOS()) {
+      // En iOS se usa el esquema "googlegmail://"
+      return "googlegmail://co?to=clcflecha@gmail.com";
+    } else {
+      // En Android se puede usar el intent para Gmail
+      return "intent://co?to=clcflecha@gmail.com#Intent;package=com.google.android.gm;scheme=googlegmail;end";
+    }
+  }
+  // En PC, abrimos la versión web
+  return "https://mail.google.com/mail";
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
-  const [copied, setCopied] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  });
+  const [copied, setCopied] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const isMobile = useIsMobile();
-    
+
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prevState) => ({ ...prevState, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
     // Simulamos una carga de 2 segundos
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Formulario enviado:", formData)
-    setIsLoading(false)
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("Formulario enviado:", formData);
+    setIsLoading(false);
     // Aquí puedes agregar la lógica real para enviar el formulario
-  }
+  };
 
   const copyEmail = useCallback(() => {
     navigator.clipboard.writeText("clcflecha@gmail.com").then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    })
-  }, [])
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto mt-3 sm:mt-10 p-8 bg-white rounded-lg shadow-none sm:shadow-lg">
       <div className="mb-6 flex items-center">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
           className="text-black hover:bg-gray-100 p-2 rounded-full transition duration-300"
         >
           <FaArrowLeft />
@@ -60,7 +83,10 @@ export default function Contact() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Nombre
           </label>
           <input
@@ -74,7 +100,10 @@ export default function Contact() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Correo electrónico
           </label>
           <input
@@ -88,7 +117,10 @@ export default function Contact() {
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Mensaje
           </label>
           <textarea
@@ -106,7 +138,11 @@ export default function Contact() {
           className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300 flex items-center justify-center"
           disabled={isLoading}
         >
-          {isLoading ? <ClipLoader color="#ffffff" size={20} /> : "Enviar mensaje"}
+          {isLoading ? (
+            <ClipLoader color="#ffffff" size={20} />
+          ) : (
+            "Enviar mensaje"
+          )}
         </button>
       </form>
 
@@ -135,7 +171,7 @@ export default function Contact() {
         >
           <FaWhatsapp className="text-2xl" />
         </a>
-        {/* Contenedor responsive para los botones de correo */}
+        {/* Botones de correo */}
         <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
           <div className="relative">
             <button
@@ -153,9 +189,8 @@ export default function Contact() {
             )}
           </div>
           <a
-            // Si es móvil, redirige a gmail.com, de lo contrario a mail.google.comus
-            
-            href={isMobile ? "https://gmail.com" : "https://mail.google.com"}
+            // Para usuarios móviles se abre la app de Gmail directamente; para PC se abre la versión web
+            href={getGmailLink(isMobile)}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
@@ -166,5 +201,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  )
+  );
 }
