@@ -12,24 +12,24 @@ import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import useIsMobile from "@/hooks/useIsMobile";
 
-// Función para detectar si el dispositivo es iOS
+// Function to detect if the device is iOS
 function isIOS() {
   if (typeof navigator === "undefined") return false;
   return /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
 }
 
-// Función que retorna el enlace para abrir Gmail
+// Function that returns the link to open Gmail
 function getGmailLink(isMobile: boolean) {
   if (isMobile) {
     if (isIOS()) {
-      // En iOS se usa el esquema "googlegmail://"
+      // On iOS, use the "googlegmail://" scheme
       return "googlegmail://co?to=clcflecha@gmail.com";
     } else {
-      // En Android se puede usar el intent para Gmail
+      // On Android, use the Gmail intent
       return "intent://co?to=clcflecha@gmail.com#Intent;package=com.google.android.gm;scheme=googlegmail;end";
     }
   }
-  // En PC, abrimos la versión web
+  // On PC, open the web version
   return "https://mail.google.com/mail";
 }
 
@@ -55,11 +55,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulamos una carga de 2 segundos
+    // Simulate a 2-second loading period
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Formulario enviado:", formData);
+    console.log("Form submitted:", formData);
     setIsLoading(false);
-    // Aquí puedes agregar la lógica real para enviar el formulario
+    // Here you can add the actual logic to send the form
   };
 
   const copyEmail = useCallback(() => {
@@ -78,7 +78,7 @@ export default function Contact() {
         >
           <FaArrowLeft />
         </button>
-        <h2 className="text-3xl font-bold ml-4 text-black">Contáctame</h2>
+        <h2 className="text-3xl font-bold ml-4 text-black">Contact Me</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -87,7 +87,7 @@ export default function Contact() {
             htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Nombre
+            Name
           </label>
           <input
             type="text"
@@ -104,7 +104,7 @@ export default function Contact() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Correo electrónico
+            Email
           </label>
           <input
             type="email"
@@ -121,7 +121,7 @@ export default function Contact() {
             htmlFor="message"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Mensaje
+            Message
           </label>
           <textarea
             id="message"
@@ -141,7 +141,7 @@ export default function Contact() {
           {isLoading ? (
             <ClipLoader color="#ffffff" size={20} />
           ) : (
-            "Enviar mensaje"
+            "Send Message"
           )}
         </button>
       </form>
@@ -171,7 +171,7 @@ export default function Contact() {
         >
           <FaWhatsapp className="text-2xl" />
         </a>
-        {/* Botones de correo */}
+        {/* Email buttons */}
         <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
           <div className="relative">
             <button
@@ -184,12 +184,12 @@ export default function Contact() {
             </button>
             {copied && (
               <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded">
-                Copiado!
+                Copied!
               </div>
             )}
           </div>
           <a
-            // Para usuarios móviles se abre la app de Gmail directamente; para PC se abre la versión web
+            // For mobile users, open the Gmail app directly; for PC, open the web version
             href={getGmailLink(isMobile)}
             target="_blank"
             rel="noopener noreferrer"

@@ -1,13 +1,13 @@
 
 export const CATEGORIES = [
-  { id: 'all', name: 'Todos los proyectos', icon: '🎯' },
-{ id: 'ecommerce', name: 'E-commerce', icon: '🛍️' },
-{ id: 'finance', name: 'Finanzas', icon: '💰' },
-{ id: 'health', name: 'Salud y bienestar', icon: '💖' },
-{ id: 'productivity', name: 'Productividad', icon: '⚡' },
-{ id: 'social', name: 'Redes sociales', icon: '📱' },
-{ id: 'external-api', name: `API's externas`, icon: '🔄' },
-{ id: 'fullstack', name: 'Full Stack', icon: '⚙️' },
+  { id: 'all', name: 'All Projects', icon: '🎯' },
+  { id: 'ecommerce', name: 'Ecommerce', icon: '🛍️' },
+  { id: 'finance', name: 'Finance', icon: '💰' },
+  { id: 'health', name: 'Health', icon: '💖' },
+  { id: 'productivity', name: 'Productivity', icon: '⚡' },
+  { id: 'social', name: 'Social', icon: '📱' },
+  { id: 'external-api', name: 'ExternalAPIs', icon: '🔄' },
+  { id: 'fullstack', name: 'FullStack', icon: '⚙️' },
 ] as const;
 
 export type CategoryId = typeof CATEGORIES[number]['id'];

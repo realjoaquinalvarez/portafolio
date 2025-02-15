@@ -67,7 +67,7 @@
 }
 
 .project-card {
-  @apply relative overflow-hidden rounded-lg bg-white/50 p-6 shadow-sm transition-all duration-300 hover:shadow-md backdrop-blur-sm border border-gray-100;
+  @apply relative overflow-hidden rounded-lg bg-white/50 p-6 shadow-sm transition-all duration-300 hover:shadow-md backdrop-blur-sm border border-t-teal-100 border-l-teal-100 border-b-blue-100 border-r-blue-100;
 }
 
 .tech-tag {

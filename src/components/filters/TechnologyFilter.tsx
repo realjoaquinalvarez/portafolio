@@ -19,7 +19,7 @@ export const TechnologyFilter = () => {
           <button
             key={tech.id}
             onClick={() => toggleTechnology(tech.id)}
-            style={{ backgroundColor: tech.color.bg, color: tech.color.text }}
+            style={{ backgroundColor: tech.color.bg, border: `1px solid ${tech.color.border}`, color: tech.color.text }}
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
               filters.selectedTechnologies.includes(tech.id)
                 ? 'ring-1 ring-gray-500'

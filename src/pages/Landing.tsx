@@ -23,19 +23,17 @@ export default function Landing() {
             <div className="flex">
               <div>
                 <BlurFade delay={0.1}>
-                  <h1 className="text-4xl font-black mt-16">Hola, soy Joaquin👋</h1>
+                  <h1 className="text-4xl font-black mt-16">Hi, I’m Joaquin💻</h1>
                 </BlurFade>
                 <div>
                   <BlurFade delay={0.1}>
                     <p className="mt-4 text-1xl w-[480px]">
-                      Desarrollador Frontend con experiencia en Backend.
+                      <span className="font-semibold">Frontend Developer</span> with solid backend experience, currently in my third year of a Systems Engineering program.
                     </p>
                   </BlurFade>
                   <BlurFade delay={0.1}>
                     <p className="mt-4 text-1xl w-[480px]">
-                      Estudio Ingeniería en Sistemas en la Universidad Nacional y
-                      llevo más de un año creando proyectos y capacitándome
-                      constantemente. 🚀
+                      <span className="font-semibold">I devote 10+ hours a day to mastering new technologies and building real-world projects</span>, driven by an unwavering work ethic. My relentless ambition fuels my passion for continuous learning and innovation.
                     </p>
                   </BlurFade>
                 </div>
@@ -47,10 +45,10 @@ export default function Landing() {
                 easing="ease-out"
                 initialOpacity={0}
               >
-                <div className="mt-20 ml-8">
+                <div className="mt-[6.5rem] ml-8">
                   <img
                     src="Perfil.jpg"
-                    alt="foto perfil"
+                    alt="profile picture"
                     className="rounded-3xl max-w-36"
                   />
                 </div>
@@ -69,16 +67,11 @@ export default function Landing() {
 
             <div>
               <BlurFade delay={0.3}>
-                <h1 className="text-2xl my-5 font-black">Sobre mí</h1>
+                <h1 className="text-2xl my-5 font-black">About me</h1>
               </BlurFade>
               <BlurFade delay={0.4}>
                 <p className="text-base">
-                  He desplegado más de 20 proyectos y siempre busco superar
-                  expectativas con mi trabajo. Trabajo con React.js, TypeScript,
-                  Node.js, MongoDB y más. Me apasiona construir aplicaciones
-                  escalables, optimizadas y con experiencias fluidas para los
-                  usuarios. Siempre estoy aprendiendo y explorando nuevas
-                  tecnologías para innovar.
+                  <span className="font-semibold">I’ve deployed 20+ projects so far, always striving to exceed expectations and deliver top-quality results</span>. My main tech stack includes React.js, TypeScript, Node.js, and MongoDB, which I use to build scalable, high-performance web applications with seamless user experiences. I’m constantly honing my skills and exploring new technologies to innovate and stay ahead in a fast-paced industry.
                 </p>
               </BlurFade>
             </div>
@@ -91,7 +84,7 @@ export default function Landing() {
         <div className="md:hidden w-full mx-auto mb-4 items-center px-4">
           <BlurFade delay={0.1}>
             <h1 className="text-4xl font-black mt-8 text-center">
-              Hola, soy Joaquin👋
+              Hello, I’m Joaquin💻
             </h1>
           </BlurFade>
 
@@ -99,7 +92,7 @@ export default function Landing() {
           <div className="flex flex-col items-center justify-center mt-4">
             <BlurFade delay={0.1}>
               <p className="text-1xl text-center">
-                Desarrollador Frontend con experiencia en Backend.
+                Frontend Developer with solid backend experience, currently in my third year of a Systems Engineering program.
               </p>
             </BlurFade>
             <FadeContent
@@ -112,7 +105,7 @@ export default function Landing() {
               <div className="mt-4">
                 <img
                   src="Perfil.jpg"
-                  alt="foto perfil"
+                  alt="profile picture"
                   className="rounded-3xl max-w-[80px]"
                 />
               </div>
@@ -121,9 +114,7 @@ export default function Landing() {
 
           <BlurFade delay={0.3}>
             <p className="text-1xl text-center mt-3 md:mt-4">
-              Estudio Ingeniería en Sistemas en la Universidad Nacional y
-              llevo más de un año creando proyectos y capacitándome
-              constantemente. 🚀
+              I am studying Systems Engineering at the National University and have been building projects and continuously upskilling for over a year. 🚀
             </p>
           </BlurFade>
 
@@ -133,16 +124,11 @@ export default function Landing() {
 
           <div>
             <BlurFade delay={0.3}>
-              <h1 className="text-2xl my-5 font-black text-center">Sobre mí</h1>
+              <h1 className="text-2xl my-5 font-black text-center">About me</h1>
             </BlurFade>
             <BlurFade delay={0.4}>
               <p className="text-base text-center">
-                He desplegado más de 20 proyectos y siempre busco superar
-                expectativas con mi trabajo. Trabajo con React.js, TypeScript,
-                Node.js, MongoDB y más. Me apasiona construir aplicaciones
-                escalables, optimizadas y con experiencias fluidas para los
-                usuarios. Siempre estoy aprendiendo y explorando nuevas
-                tecnologías para innovar.
+                I have deployed over 20 projects and always strive to exceed expectations with my work. I work with React.js, TypeScript, Node.js, MongoDB, and more. I am passionate about building scalable, optimized applications with seamless user experiences. I am continuously learning and exploring new technologies to drive innovation.
               </p>
             </BlurFade>
           </div>

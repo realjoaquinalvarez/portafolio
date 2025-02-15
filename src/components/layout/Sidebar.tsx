@@ -46,13 +46,13 @@ export const Sidebar = () => {
           <Link to="/" className="mt-auto">
             <div className="flex items-center m-[-8px] py-2 rounded-md transition-colors hover:bg-gray-50/50">
               <img
-                className={`h-7 w-7 mb-4 ${isSidebarCollapsed ? 'bg-gray-900 border-gray-00 rounded-lg w-[2.8rem] h-[2.8rem] pr-[0.65rem] p-[0.50rem] md:ml-[0.8rem]' : 'mx-auto md:mx-0 md:ml-6' }`}
+                className={`h-7 w-7 mb-4 ${isSidebarCollapsed ? 'bg-gray-900 border-gray-00 rounded-lg w-[2.8rem] h-[2.8rem] pr-[0.65rem] p-[0.50rem] md:ml-[0.8rem] mx-auto' : 'mx-auto md:mx-0 md:ml-6' }`}
                 src={isSidebarCollapsed ? '/icons/white-cropped.svg' : '/icons/back-cropped.svg'}
                 alt="volver"
               />
               {!isSidebarCollapsed && (
                 <p className="text-3xl leading-none font-outfit mb-4 ml-1 font-semibold text-gray-900 hidden md:block ">
-                  Inicio
+                  Home
                 </p>
               )}
             </div>
