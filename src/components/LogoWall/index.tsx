@@ -2,12 +2,12 @@ import LogoWall from './logoWall';
 import reactbits from "../../assets/logos/reactbits-icon.svg";
 
 const logoImgs = [
+    { imgUrl: '/logos/express.svg', altText: 'Express.js' },
+    { imgUrl: '/logos/mongodb.svg', altText: 'MongoDB' },
     { imgUrl: '/logos/react.svg', altText: 'React' },
     { imgUrl: '/logos/typescript.svg', altText: 'TypeScript' },
     { imgUrl: '/logos/tailwindcss.svg', altText: 'Tailwind CSS' },
     { imgUrl: '/logos/nodejs.svg', altText: 'Node.js' },
-    { imgUrl: '/logos/express.svg', altText: 'Express.js' },
-    { imgUrl: '/logos/mongodb.svg', altText: 'MongoDB' },
 ];
 
 export function LogosDesktop() {

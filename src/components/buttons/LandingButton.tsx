@@ -30,7 +30,7 @@ export const LandingButton = () => {
                     easing="ease-out"
                     initialOpacity={0}
                 >
-                    <Link to='/'>
+                    <Link to='/contact'>
                         <button
                             className="group px-6 py-3 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-all duration-200 font-medium flex items-center gap-2"
                         >
