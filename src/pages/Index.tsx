@@ -31,10 +31,12 @@ const Index = () => {
     }
 
      if (filters.selectedTechnologies.length > 0) {
-      return filters.selectedTechnologies.every(selectedTech =>
-        project.technologies.some(tech => tech.id === selectedTech)
+      return project.technologies.some(tech => 
+        filters.selectedTechnologies.includes(tech.id)
       );
     }
+
+    
 
     if (filters.selectedCategory) {
 
