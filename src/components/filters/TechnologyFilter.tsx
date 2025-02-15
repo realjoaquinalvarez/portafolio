@@ -13,8 +13,8 @@ export const TechnologyFilter = () => {
   };
 
   return (
-    <div className="space-y-4 mb-8">
-      <div className="flex flex-wrap gap-2 mt-12">
+    <div className="md:space-y-4 mb-4 md:mb-8">
+      <div className="flex flex-wrap justify-center md:flex-wrap gap-2 mt-12">
         {TECHNOLOGIES.map((tech) => (
           <button
             key={tech.id}

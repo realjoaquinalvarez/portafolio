@@ -7,7 +7,7 @@ export const SearchBar = () => {
   const { filters, setSearchQuery, clearFilters } = useProjectStore();
 
   return (
-    <div className="flex justify-center space-x-2 mb-6">
+    <div className="flex flex-col gap-2 md:flex-row justify-center mb-0 md:mb-6">
       <Input
         type="text"
         placeholder="Buscar por título o categoría..."

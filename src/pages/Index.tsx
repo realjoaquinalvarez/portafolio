@@ -52,12 +52,12 @@ const Index = () => {
   return (
     <div className="flex min-h-screen bg-gray-50/50">
       
-      <div className={`${isSidebarCollapsed ? 'w-16' : 'w-64'}`}>
+      <div className={`${isSidebarCollapsed ? 'w-16' : 'w-16 md:w-64'}`}>
         <Sidebar />
       </div>
       
-      <main className="flex-1 px-6 py-8">
-        <div className="container mx-auto max-w-6xl">
+      <main className="flex-1 md:px-6 py-8">
+        <div className="container px-1 md:px-8 mx-auto max-w-6xl">
           <SearchBar />
           <TechnologyFilter />
           <ProjectGrid projects={filteredProjects} />

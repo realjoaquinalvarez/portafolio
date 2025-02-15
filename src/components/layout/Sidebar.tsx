@@ -9,19 +9,19 @@ export const Sidebar = () => {
   return (
     <div
       className={`fixed top-0 left-0 h-screen transition-all duration-300 ${
-        isSidebarCollapsed ? 'w-16' : 'w-64'
+        isSidebarCollapsed ? 'w-16' : 'w-16 md:w-64'
       }`}
     >
       <div className="relative flex h-full flex-col border-r border-gray-100 bg-white/50 backdrop-blur-sm">
         <button
           onClick={toggleSidebar}
-          className="absolute -right-3 top-4 rounded-full bg-white p-1 shadow-sm hover:shadow-md transition-shadow"
+          className="absolute hidden md:block -right-3 top-4 rounded-full bg-white p-1 shadow-sm hover:shadow-md transition-shadow"
         >
           <Menu className="h-4 w-4 text-gray-600" />
         </button>
 
         <div className="p-4">
-          <h2 className={`text-sm font-medium text-gray-900 ${isSidebarCollapsed ? 'hidden' : 'block'}`}>
+          <h2 className={`text-sm font-medium text-gray-900 ${isSidebarCollapsed ? 'hidden' : 'hidden md:block'}`}>
             Categorías
           </h2>
         </div>
@@ -38,7 +38,7 @@ export const Sidebar = () => {
               }`}
             >
               <span className="text-xl">{category.icon}</span>
-              {!isSidebarCollapsed && <span>{category.name}</span>}
+              {!isSidebarCollapsed && <span className='hidden md:block'>{category.name}</span>}
             </button>
           ))}
         </nav>
