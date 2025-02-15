@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { Sidebar } from '@/components/layout/Sidebar';
-import { SearchBar } from '@/components/filters/SearchBar';
-import { TechnologyFilter } from '@/components/filters/TechnologyFilter';
-import { ProjectGrid } from '@/components/projects/ProjectGrid';
-import { useProjectStore } from '@/store/useProjectStore';
+import { Sidebar } from "@/components/layout/Sidebar";
+import { SearchBar } from "@/components/filters/SearchBar";
+import { TechnologyFilter } from "@/components/filters/TechnologyFilter";
+import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { useProjectStore } from "@/store/useProjectStore";
 import { toast, Toaster } from "sonner"; // Importación de Sonner
 import useIsMobile from "@/hooks/useIsMobile";
 
@@ -66,22 +66,21 @@ const Index = () => {
   }, [filters, filteredProjects.length]);
 
   return (
-    
     <div className="flex min-h-screen bg-gray-50/50">
       {/* Toaster from Sonner */}
       <Toaster
         position="bottom-right"
         toastOptions={{
           style: {
-            fontSize: '0.75rem',
-            padding: '0.6rem',
-            justifyContent: 'center',
-            maxWidth: '200px',
-            width: 'auto',
-            position: 'absolute',
-            right: isMobile ? '2rem' : '0rem',
-            marginLeft: '200px'
-          }
+            fontSize: "0.75rem",
+            padding: "0.6rem",
+            justifyContent: "center",
+            maxWidth: "200px",
+            width: "auto",
+            position: "absolute",
+            right: isMobile ? "2rem" : "0rem",
+            marginLeft: "200px",
+          },
         }}
       />
 

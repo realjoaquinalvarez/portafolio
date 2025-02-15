@@ -1,15 +1,17 @@
-import { Menu } from 'lucide-react';
-import { CATEGORIES } from '@/constants/categories';
-import { useProjectStore } from '@/store/useProjectStore';
-import { Link } from 'react-router-dom';
+import { Menu } from "lucide-react";
+import { CATEGORIES } from "@/constants/categories";
+import { useProjectStore } from "@/store/useProjectStore";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
-  const { isSidebarCollapsed, toggleSidebar, filters, toggleCategory } = useProjectStore();
+  const { isSidebarCollapsed, toggleSidebar, filters, toggleCategory } =
+    useProjectStore();
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen transition-all duration-300 ${isSidebarCollapsed ? 'w-16' : 'w-16 md:w-64'
-        }`}
+      className={`fixed top-0 left-0 h-screen transition-all duration-300 ${
+        isSidebarCollapsed ? "w-16" : "w-16 md:w-64"
+      }`}
     >
       <div className="relative flex h-full flex-col border-r border-gray-100 bg-white/50 backdrop-blur-sm">
         <button
@@ -20,7 +22,11 @@ export const Sidebar = () => {
         </button>
 
         <div className="p-4">
-          <h2 className={`text-sm font-medium text-gray-900 ${isSidebarCollapsed ? 'hidden' : 'hidden md:block'}`}>
+          <h2
+            className={`text-sm font-medium text-gray-900 ${
+              isSidebarCollapsed ? "hidden" : "hidden md:block"
+            }`}
+          >
             Categorías
           </h2>
         </div>
@@ -31,13 +37,16 @@ export const Sidebar = () => {
               <button
                 key={category.id}
                 onClick={() => toggleCategory(category.id)}
-                className={`w-full flex justify-start items-center space-x-3 px-3 py-2 rounded-md transition-colors ${filters.selectedCategory === category.id
-                  ? 'bg-gray-50 text-gray-900'
-                  : 'text-gray-600 hover:bg-gray-50/50'
-                  }`}
+                className={`w-full flex justify-start items-center space-x-3 px-3 py-2 rounded-md transition-colors ${
+                  filters.selectedCategory === category.id
+                    ? "bg-gray-50 text-gray-900"
+                    : "text-gray-600 hover:bg-gray-50/50"
+                }`}
               >
                 <span className="text-xl">{category.icon}</span>
-                {!isSidebarCollapsed && <span className='hidden md:block'>{category.name}</span>}
+                {!isSidebarCollapsed && (
+                  <span className="hidden md:block">{category.name}</span>
+                )}
               </button>
             ))}
           </div>
@@ -46,8 +55,16 @@ export const Sidebar = () => {
           <Link to="/" className="mt-auto">
             <div className="flex items-center m-[-8px] py-2 rounded-md transition-colors hover:bg-gray-50/50">
               <img
-                className={`h-7 w-7 mb-4 ${isSidebarCollapsed ? 'bg-gray-900 border-gray-00 rounded-lg w-[2.8rem] h-[2.8rem] pr-[0.65rem] p-[0.50rem] md:ml-[0.8rem] mx-auto' : 'mx-auto md:mx-0 md:ml-6' }`}
-                src={isSidebarCollapsed ? '/icons/white-cropped.svg' : '/icons/back-cropped.svg'}
+                className={`h-7 w-7 mb-4 ${
+                  isSidebarCollapsed
+                    ? "bg-gray-900 border-gray-00 rounded-lg w-[2.8rem] h-[2.8rem] pr-[0.65rem] p-[0.50rem] md:ml-[0.8rem] mx-auto"
+                    : "mx-auto md:mx-0 md:ml-6"
+                }`}
+                src={
+                  isSidebarCollapsed
+                    ? "/icons/white-cropped.svg"
+                    : "/icons/back-cropped.svg"
+                }
                 alt="volver"
               />
               {!isSidebarCollapsed && (
@@ -57,11 +74,7 @@ export const Sidebar = () => {
               )}
             </div>
           </Link>
-
         </nav>
-
-
-
       </div>
     </div>
   );
