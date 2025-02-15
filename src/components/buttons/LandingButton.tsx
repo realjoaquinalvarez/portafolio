@@ -11,7 +11,7 @@ export const LandingButton = () => {
                 <FadeContent
                     blur={true}
                     duration={350}
-                    delay={900}
+                    delay={450}
                     easing="ease-out"
                     initialOpacity={0}
                 >
@@ -26,7 +26,7 @@ export const LandingButton = () => {
                 <FadeContent
                     blur={true}
                     duration={350}
-                    delay={1000}
+                    delay={550}
                     easing="ease-out"
                     initialOpacity={0}
                 >
