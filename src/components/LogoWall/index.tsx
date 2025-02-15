@@ -13,7 +13,7 @@ const logoImgs = [
 export function LogosDesktop() {
     return (
         <div 
-            style={{ height: '600px', width: '90%', position: 'relative' }}>
+            style={{ height: '690px', width: '90%', position: 'relative' }}>
             <LogoWall
                 items={logoImgs}
                 direction='vertical'
@@ -30,7 +30,7 @@ export function LogosDesktop() {
 export function LogosMobile() {
     return (
         <div 
-            style={{ height: '60px', width: '90%', position: 'relative' }}>
+            style={{ height: '60px', width: '100%', position: 'relative' }}>
             <LogoWall
                 items={logoImgs}
                 direction='horizontal'

@@ -6,15 +6,15 @@ import FadeContent from "@/components/ui/fadeContent";
 export default function Landing() {
   return (
     <>
-      <div className="flex flex-row">
-        {/* Logos Desktop (PC) */}
-        <div className="absolute">
+        <div className="absolute h-screen">
           <BlurFade delay={0.8}>
             <div className="hidden md:block">
               <LogosDesktop />
             </div>
           </BlurFade>
         </div>
+      <div className="flex flex-row max-h-fit">
+        {/* Logos Desktop (PC) */}
 
         {/* Versión PC (sin cambios) */}
         <div className="hidden md:block w-[672px] mx-auto mb-10 items-center">

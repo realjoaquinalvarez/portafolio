@@ -44,7 +44,7 @@ export const Sidebar = () => {
         </nav>
 
         <Link to="/">
-          <div className="absolute left-3 bottom-4 flex flex-row items-center">
+          <div className="absolute left-3 bottom-4 hidden md:flex flex-row items-center">
             <img
               className={`h-10 w-10 ${isSidebarCollapsed && 'bg-gray-900 border-gray-00 rounded-lg w-9 h-9'}`}
               src={`${isSidebarCollapsed ? '/icons/white.svg' : '/icons/back.svg' }`}
@@ -59,6 +59,18 @@ export const Sidebar = () => {
             </p>
           </div>
         </Link>
+
+        <Link to="/">
+        <div className="absolute left-3 bottom-4 md:hidden">
+            <img
+              className='bg-gray-900 border-gray-00 rounded-lg w-9 h-9'
+              src='/icons/white.svg'
+              alt="volver"
+            />
+          </div>
+        </Link>
+        
+        
       </div>
     </div>
   );
