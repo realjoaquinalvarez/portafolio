@@ -10,7 +10,7 @@ export const SearchBar = () => {
     <div className="flex flex-col gap-2 md:flex-row justify-center mb-0 md:mb-6">
       <Input
         type="text"
-        placeholder="Buscar por título o categoría..."
+        placeholder="Find projects by title or category..."
         value={filters.searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         className="max-w-md bg-white/50 backdrop-blur-sm border-gray-200"
@@ -20,7 +20,7 @@ export const SearchBar = () => {
         onClick={clearFilters}
         >
         
-        Borrar filtros
+        Clear filters
       </button>
       
 
