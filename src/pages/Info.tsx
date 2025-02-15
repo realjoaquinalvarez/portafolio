@@ -1,6 +1,7 @@
-
 export default function Info() {
   return (
-    <div>Info</div>
-  )
+    <div>
+      <h1>About Us</h1>
+    </div>
+  );
 }
