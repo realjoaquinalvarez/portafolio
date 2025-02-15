@@ -5,9 +5,11 @@ import { TechnologyFilter } from '@/components/filters/TechnologyFilter';
 import { ProjectGrid } from '@/components/projects/ProjectGrid';
 import { useProjectStore } from '@/store/useProjectStore';
 import { toast, Toaster } from "sonner"; // Importación de Sonner
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Index = () => {
   const { projects, filters, isSidebarCollapsed } = useProjectStore();
+  const isMobile = useIsMobile();
 
   const normalizeText = (text: string): string => {
     return text
@@ -77,7 +79,7 @@ const Index = () => {
             maxWidth: '200px',
             width: 'auto',
             position: 'absolute',
-            right: '1.5rem',
+            right: isMobile ? '2rem' : '0rem',
             marginLeft: '200px'
           }
         }}
