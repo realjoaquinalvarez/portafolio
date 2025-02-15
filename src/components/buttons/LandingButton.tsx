@@ -1,10 +1,9 @@
 import { ExternalLink, Link as LinkLucide } from "lucide-react";
 import FadeContent from "@/components/ui/fadeContent";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const LandingButton = () => {
 
-    const navigate = useNavigate()
     
     return (
         <div className="mt-6 bg-white flex items-center justify-center">
@@ -31,13 +30,14 @@ export const LandingButton = () => {
                     easing="ease-out"
                     initialOpacity={0}
                 >
-                    <button
-                        onClick={() => window.open('/contact', '_blank', 'noopener,noreferrer')}
-                        className="group px-6 py-3 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-all duration-200 font-medium flex items-center gap-2"
-                    >
-                        Contactame
-                        <LinkLucide className="w-0 h-0 opacity-0 group-hover:w-5 group-hover:h-5 group-hover:opacity-100 transition-all duration-200 text-ellipsis" />
-                    </button>
+                    <Link to='/'>
+                        <button
+                            className="group px-6 py-3 border-2 border-gray-900 text-gray-900 rounded-lg hover:bg-gray-100 transition-all duration-200 font-medium flex items-center gap-2"
+                        >
+                            Contactame
+                            <LinkLucide className="w-0 h-0 opacity-0 group-hover:w-5 group-hover:h-5 group-hover:opacity-100 transition-all duration-200 text-ellipsis" />
+                        </button>
+                    </Link>
                     
                 </FadeContent>
             </div>
