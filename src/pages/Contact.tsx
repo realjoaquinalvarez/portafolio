@@ -1,12 +1,12 @@
 import { useState, useCallback } from "react";
-import { 
-  FaLinkedin, 
-  FaGithub, 
-  FaEnvelope, 
-  FaCopy, 
-  FaWhatsapp, 
-  FaArrowLeft, 
-  FaExternalLinkAlt 
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaCopy,
+  FaWhatsapp,
+  FaArrowLeft,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,9 @@ import useIsMobile from "@/hooks/useIsMobile";
 // Function to detect if the device is iOS
 function isIOS() {
   if (typeof navigator === "undefined") return false;
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window);
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window)
+  );
 }
 
 // Function that returns the link to open Gmail
@@ -70,134 +72,136 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto mt-3 sm:mt-10 p-8 bg-white rounded-lg shadow-none sm:shadow-lg">
-      <div className="mb-6 flex items-center">
-        <button
-          onClick={() => navigate("/")}
-          className="text-black hover:bg-gray-100 p-2 rounded-full transition duration-300"
-        >
-          <FaArrowLeft />
-        </button>
-        <h2 className="text-3xl font-bold ml-4 text-black">Contact Me</h2>
-      </div>
+    <div className="h-screen w-screen container flex">
+      <div className="max-w-2xl mx-auto my-auto p-8 bg-white rounded-lg shadow-none sm:shadow-lg">
+        <div className="mb-6 flex items-center">
+          <button
+            onClick={() => navigate("/")}
+            className="text-black hover:bg-gray-100 p-2 rounded-full transition duration-300"
+          >
+            <FaArrowLeft />
+          </button>
+          <h2 className="text-3xl font-bold ml-4 text-black">Contact Me</h2>
+        </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
-            required
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
-            required
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300 flex items-center justify-center"
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <ClipLoader color="#ffffff" size={20} />
-          ) : (
-            "Send Message"
-          )}
-        </button>
-      </form>
-
-      <div className="flex flex-wrap justify-center items-center gap-6 mt-8">
-        <a
-          href="https://www.linkedin.com/in/realjoaquinalvarez/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black hover:text-gray-600 transition duration-300"
-        >
-          <FaLinkedin className="text-2xl" />
-        </a>
-        <a
-          href="https://github.com/realjoaquinalvarez"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black hover:text-gray-600 transition duration-300"
-        >
-          <FaGithub className="text-2xl" />
-        </a>
-        <a
-          href="https://wa.link/v55aj6"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black hover:text-gray-600 transition duration-300"
-        >
-          <FaWhatsapp className="text-2xl" />
-        </a>
-        {/* Email buttons */}
-        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
-          <div className="relative">
-            <button
-              onClick={copyEmail}
-              className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
             >
-              <FaEnvelope className="text-lg" />
-              <span className="text-sm">clcflecha@gmail.com</span>
-              <FaCopy className="text-sm" />
-            </button>
-            {copied && (
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded">
-                Copied!
-              </div>
-            )}
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+              required
+            />
           </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows={4}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-black"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300 flex items-center justify-center"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <ClipLoader color="#ffffff" size={20} />
+            ) : (
+              "Send Message"
+            )}
+          </button>
+        </form>
+
+        <div className="flex flex-wrap justify-center items-center gap-6 mt-8">
           <a
-            // For mobile users, open the Gmail app directly; for PC, open the web version
-            href={getGmailLink(isMobile)}
+            href="https://www.linkedin.com/in/realjoaquinalvarez/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
+            className="text-black hover:text-gray-600 transition duration-300"
           >
-            <span className="text-sm">Go to Gmail</span>
-            <FaExternalLinkAlt className="text-sm" />
+            <FaLinkedin className="text-2xl" />
           </a>
+          <a
+            href="https://github.com/realjoaquinalvarez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black hover:text-gray-600 transition duration-300"
+          >
+            <FaGithub className="text-2xl" />
+          </a>
+          <a
+            href="https://wa.link/v55aj6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-black hover:text-gray-600 transition duration-300"
+          >
+            <FaWhatsapp className="text-2xl" />
+          </a>
+          {/* Email buttons */}
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
+            <div className="relative">
+              <button
+                onClick={copyEmail}
+                className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
+              >
+                <FaEnvelope className="text-lg" />
+                <span className="text-sm">clcflecha@gmail.com</span>
+                <FaCopy className="text-sm" />
+              </button>
+              {copied && (
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded">
+                  Copied!
+                </div>
+              )}
+            </div>
+            <a
+              // For mobile users, open the Gmail app directly; for PC, open the web version
+              href={getGmailLink(isMobile)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-black py-1 px-3 rounded-full transition duration-300"
+            >
+              <span className="text-sm">Go to Gmail</span>
+              <FaExternalLinkAlt className="text-sm" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
