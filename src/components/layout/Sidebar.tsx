@@ -27,6 +27,7 @@ export const Sidebar = () => {
             }`}
           >
             Categorías
+
           </h2>
         </div>
         <nav className="flex-1 space-y-1 p-1 flex flex-col justify-between">
@@ -45,6 +46,7 @@ export const Sidebar = () => {
                 {!isSidebarCollapsed && (
                   <span className="hidden md:block">{category.name}</span>
                 )}
+
               </button>
             ))}
           </div>
@@ -63,6 +65,7 @@ export const Sidebar = () => {
                     ? "/icons/white-cropped.svg"
                     : "/icons/back-cropped.svg"
                 }
+
                 alt="volver"
               />
               {!isSidebarCollapsed && (

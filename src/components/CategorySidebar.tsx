@@ -45,7 +45,7 @@ export const CategorySidebar = ({ onCategoryChange }: CategorySidebarProps) => {
 
       <div className="p-4">
         <h2 className={`text-sm font-medium text-gray-900 ${isCollapsed ? 'hidden' : 'block'}`}>
-          Categorías
+         Categories
         </h2>
       </div>
 
