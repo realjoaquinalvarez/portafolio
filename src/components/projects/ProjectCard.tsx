@@ -1,13 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
-import { ExternalLink, Plus } from 'lucide-react';
-import { Project } from '@/store/useProjectStore';
+import { useState, useRef, useEffect } from "react";
+import { ExternalLink, Plus } from "lucide-react";
+import { Project } from "@/store/useProjectStore";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
 import { motion } from "framer-motion";
-import useIsMobile from '@/hooks/useIsMobile';
+import useIsMobile from "@/hooks/useIsMobile";
 
 export const ProjectCard = ({
   title,
@@ -26,7 +26,10 @@ export const ProjectCard = ({
   // Cierra el popover si se hace click fuera del contenedor
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         setPopoverOpen(false);
       }
     };
@@ -37,12 +40,18 @@ export const ProjectCard = ({
   return (
     <div ref={containerRef} className="project-card group">
       <div className="relative mb-4 overflow-hidden rounded-lg">
-        <div className={`absolute inset-0 bg-gray-100 ${imageLoaded ? 'hidden' : 'block'}`} />
+        <div
+          className={`absolute inset-0 bg-gray-100 ${
+            imageLoaded ? "hidden" : "block"
+          }`}
+        />
         <a href={link} target="_blank" rel="noopener noreferrer">
           <img
             src={image}
             alt={title}
-            className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`h-48 w-full object-cover transition-all duration-300 group-hover:scale-[1.02] ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
             onLoad={() => setImageLoaded(true)}
           />
         </a>
@@ -101,7 +110,10 @@ export const ProjectCard = ({
                 {hiddenTags.map((tech, index) => (
                   <motion.span
                     key={tech.id}
-                    style={{ backgroundColor: tech.color.bg, color: tech.color.text }}
+                    style={{
+                      backgroundColor: tech.color.bg,
+                      color: tech.color.text,
+                    }}
                     className="tech-tag text-xs"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
