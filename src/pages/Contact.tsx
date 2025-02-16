@@ -73,7 +73,7 @@ export default function Contact() {
 
   return (
     <div className="h-screen w-screen container flex">
-      <div className="max-w-2xl mx-auto my-auto p-8 bg-white rounded-lg shadow-none sm:shadow-lg">
+      <div className="max-w-2xl my-auto mx-auto p-8 bg-white rounded-lg shadow-none sm:shadow-lg">
         <div className="mb-6 flex items-center">
           <button
             onClick={() => navigate("/")}

@@ -21,7 +21,7 @@ export const Sidebar = () => {
 
         <div className="p-4">
           <h2 className={`text-sm font-medium text-gray-900 ${isSidebarCollapsed ? 'hidden' : 'hidden md:block'}`}>
-            Categorías
+          Categories
           </h2>
         </div>
 
